@@ -24,10 +24,11 @@ export default function useCards(initialComp){
     /**
      * get async data from external api
      */
-    function getData(){
+    async function getData(){
         const url = `https://swapi.py4e.com/api/${currComp}`;
-        {/* TODO Task 2 */}
-        {/* TODO Task 2 */}
+        const response = await axios.get(url);
+        dealCards(response?.data?.results)
+        setLoading(false)
     }
 
     useEffect(() => {
@@ -57,14 +58,13 @@ export default function useCards(initialComp){
         const firstComputer = computer[0];
         let playerNew, computerNew = [];
         {/* TODO Task 4 splice the first card from player and computer */}
-
         {/* TODO Task 4 */}
 
         if (firstPlayer[prop] > firstComputer[prop]) {
             // player wins - player gets computers card
             playersTurnUpdate = true;
             {/* TODO Task 4 update players array */}
-
+            setPlayer([...player, firstComputer])
             {/* TODO Task 4 */}
 
             if (computerNew.length === 0) {
@@ -75,7 +75,8 @@ export default function useCards(initialComp){
             // computer wins - computer gets players card
             playersTurnUpdate = false;
             {/* TODO Task 4 update computers array */}
-
+            {/* TODO Task 4 */}
+            setComputer([...computer, firstPlayer])
             {/* TODO Task 4 */}
 
             if (playerNew.length === 0) {

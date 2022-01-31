@@ -7,13 +7,36 @@ h1 {
 
 {/* TODO Task 3 */}
 
+.card {
+  padding: 16px;
+  border: 1px solid black;
+}
+
 img {
   border-radius: 3px;
   border: 1px solid black;
   margin-bottom: 10px;
 }
 
+tr {
+  padding: 5px auto;
+  height: 40px;
+}
+
+tr:nth-child(odd) {
+  background-color: lightgray;
+}
+
+tr:hover{
+  background-color: yellow;
+}
+
+td {
+  padding: 5px auto;
+}
+
 .back {
   height: 445px;
   background-color: lightgreen;
+  width: 230px;
 }

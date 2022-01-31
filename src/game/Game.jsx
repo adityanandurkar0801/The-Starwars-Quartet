@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Badge, Spinner} from 'react-bootstrap'
-
+import ChangeCardSetModal from './ChangeCardSetModal';
 import useCards from "./useCards";
 import './Game.css';
 import Card from './Card';
@@ -20,6 +20,8 @@ export default function Game({title}) {
         setCurrComp(value);
     }
 
+    const handleClose = () => setShowModal(x => !x)
+
     return (
         <>
             <h2 className={"header"}>{title}</h2>
@@ -28,6 +30,7 @@ export default function Game({title}) {
                     Current card set <Badge variant="light">{compareType}</Badge>
                 </Button>
                 {/* TODO Task 1 */}
+                <ChangeCardSetModal show={showModal} handleClose={handleClose} />
                 {/* TODO Task 1 */}
                 <h1 className={"header"}>
                     {playersTurn ? 'Your turn' : 'Computers turn'}
